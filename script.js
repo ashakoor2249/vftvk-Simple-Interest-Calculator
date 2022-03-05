@@ -4,14 +4,15 @@ function compute()
     var rate = document.getElementById("rate").value;
     var years = document.getElementById("years").value;
     var interest = principal * years * rate /100;
-    var amount=parseInt(principal)+parseInt(interest)
+
     var year = new Date().getFullYear()+parseInt(years);
     if(isNaN(principal) || principal<1){
-    alert("Input not valid. Enter a number greater than 0.")
+    alert("Enter a positve number.")
+    document.getElementById("principal").focus()
     }
 
     else{
-        document.getElementById("result").innerHTML = "If you deposit "+principal+ " at an interest rate of "+rate+ " you will receive an amount of "+interest+ " in the year "+year+ "<br/>";
+        document.getElementById("result").innerHTML = 'If you deposit <mark>' +principal+ '</mark> at an interest rate of <mark>'+rate+ '%</mark> you will receive an amount of <mark>'+interest+ '</mark> in the year '+year+'';
     }
     
 
@@ -19,8 +20,9 @@ function compute()
 function updateRate() 
 {
     var rateval = document.getElementById("rate").value;
-    document.getElementById("rate_val").innerText=rateval;
+    document.getElementById("rate_val").innerText=rateval+"%";
 }
+
 
 
 
